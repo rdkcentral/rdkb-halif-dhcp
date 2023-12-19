@@ -19,7 +19,7 @@ DHCPv4C HAL is an abstraction layer, implemented to interact with the underlying
 ### Initialization and Startup
 
 If syscfg parameter "UDHCPEnable_v2" is true then opensource dhcpv4c APIs will be used.
-If syscfg parameter "UDHCPEnable_v2" is flase then proprietary dhcpv4c APIs will be used.
+If syscfg parameter "UDHCPEnable_v2" is false then proprietary dhcpv4c APIs will be used.
 
 3rd party vendors will implement appropriately to meet operational requirements. This interface is expected to block if the hardware is not ready.
 
@@ -131,37 +131,37 @@ participant DHCPV4C HAL
 participant Vendor Software
 participant Opensource Software
 Client Module->>DHCPV4C HAL: dhcpv4c_get_ert_lease_time()
-DHCPV4C HAL->>Opensource Software: UDHCP_Enable_v2 is true
+DHCPV4C HAL->>Opensource Software: UDHCPEnable_v2 is true
 Opensource Software->>DHCPV4C HAL: 
-DHCPV4C HAL->>Vendor Software: UDHCP_Enable_v2 is false
+DHCPV4C HAL->>Vendor Software: UDHCPEnable_v2 is false
 Vendor Software->>DHCPV4C HAL: 
 DHCPV4C HAL->>Client Module: return
 
 Client Module->>DHCPV4C HAL: dhcpv4c_get_ert_remain_lease_time()
-DHCPV4C HAL->>Opensource Software: UDHCP_Enable_v2 is true
+DHCPV4C HAL->>Opensource Software: UDHCPEnable_v2 is true
 Opensource Software->>DHCPV4C HAL: 
-DHCPV4C HAL->>Vendor Software: UDHCP_Enable_v2 is false
+DHCPV4C HAL->>Vendor Software: UDHCPEnable_v2 is false
 Vendor Software->>DHCPV4C HAL: 
 DHCPV4C HAL->>Client Module: return
 
 Client Module->>DHCPV4C HAL: dhcpv4c_get_ert_ifname()
-DHCPV4C HAL->>Opensource Software: UDHCP_Enable_v2 is true
+DHCPV4C HAL->>Opensource Software: UDHCPEnable_v2 is true
 Opensource Software->>DHCPV4C HAL: 
-DHCPV4C HAL->>Vendor Software: UDHCP_Enable_v2 is false
+DHCPV4C HAL->>Vendor Software: UDHCPEnable_v2 is false
 Vendor Software->>DHCPV4C HAL: 
 DHCPV4C HAL->>Client Module: return
 
 Client Module->>DHCPV4C HAL: dhcpv4c_get_ert_ip_addr()
-DHCPV4C HAL->>Opensource Software: UDHCP_Enable_v2 is true
+DHCPV4C HAL->>Opensource Software: UDHCPEnable_v2 is true
 Opensource Software->>DHCPV4C HAL: 
-DHCPV4C HAL->>Vendor Software: UDHCP_Enable_v2 is false
+DHCPV4C HAL->>Vendor Software: UDHCPEnable_v2 is false
 Vendor Software->>DHCPV4C HAL: 
 DHCPV4C HAL->>Client Module: return
 
 Client Module->>DHCPV4C HAL: dhcpv4c_get_ert_dns_svrs()
-DHCPV4C HAL->>Opensource Software: UDHCP_Enable_v2 is true
+DHCPV4C HAL->>Opensource Software: UDHCPEnable_v2 is true
 Opensource Software->>DHCPV4C HAL: 
-DHCPV4C HAL->>Vendor Software: UDHCP_Enable_v2 is false
+DHCPV4C HAL->>Vendor Software: UDHCPEnable_v2 is false
 Vendor Software->>DHCPV4C HAL: 
 DHCPV4C HAL->>Client Module: return
 ```
