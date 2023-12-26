@@ -82,7 +82,7 @@
 typedef struct {
     
     INT number;                         /* Number of IPv4 addresses in the list */
-	UINT addrs[DHCPV4_MAX_IPV4_ADDRS];  /*List of IPv4 addresses.Each IPv4 address is an unsigned integer of 4 bytes. 
+	UINT addrs[DHCPV4_MAX_IPV4_ADDRS];  /*List of IPv4 addresses.Each IPv4 address is an unsigned integer. 
                                         The valid ranges for IPv4 addresses are: 1.0.0.0 to 127.0.0.0, 128.0.0.0 to 191.255.0.0, 192.0.0.0 to 223.255.255.0 */
 } dhcpv4c_ip_list_t;
 /** @} */  //END OF GROUP DHCPV4C_HAL_TYPES
@@ -98,6 +98,14 @@ typedef struct {
  *
 **********************************************************************************/
 
+/*
+ * TODO:
+ *
+ * 1. Extend the return codes by listing out the possible reasons of failure, to improve the interface in the future.
+ *    This was reported during the review for header file migration to opensource github.
+ *
+ */
+
 /**
 * @brief Gets the E-Router Offered Lease Time.
 *
@@ -108,11 +116,8 @@ typedef struct {
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_lease_time(UINT *pValue);
@@ -127,12 +132,9 @@ INT dhcpv4c_get_ert_lease_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_remain_lease_time(UINT *pValue);
@@ -147,12 +149,9 @@ INT dhcpv4c_get_ert_remain_lease_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_remain_renew_time(UINT *pValue);
@@ -167,12 +166,9 @@ INT dhcpv4c_get_ert_remain_renew_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_remain_rebind_time(UINT *pValue);
@@ -187,12 +183,9 @@ INT dhcpv4c_get_ert_remain_rebind_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_config_attempts(INT *pValue);
@@ -207,12 +200,9 @@ INT dhcpv4c_get_ert_config_attempts(INT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_ifname(CHAR *pName);
@@ -233,12 +223,9 @@ INT dhcpv4c_get_ert_ifname(CHAR *pName);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_fsm_state(INT *pValue);
@@ -253,11 +240,8 @@ INT dhcpv4c_get_ert_fsm_state(INT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_ip_addr(UINT *pValue);
@@ -272,12 +256,9 @@ INT dhcpv4c_get_ert_ip_addr(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_mask(UINT *pValue);
@@ -292,12 +273,9 @@ INT dhcpv4c_get_ert_mask(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_gw(UINT *pValue);
@@ -311,12 +289,9 @@ INT dhcpv4c_get_ert_gw(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_dns_svrs(dhcpv4c_ip_list_t *pList);
@@ -331,12 +306,9 @@ INT dhcpv4c_get_ert_dns_svrs(dhcpv4c_ip_list_t *pList);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ert_dhcp_svr(UINT *pValue);
@@ -351,12 +323,9 @@ INT dhcpv4c_get_ert_dhcp_svr(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_lease_time(UINT *pValue);
@@ -371,12 +340,9 @@ INT dhcpv4c_get_ecm_lease_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_remain_lease_time(UINT *pValue);
@@ -391,12 +357,9 @@ INT dhcpv4c_get_ecm_remain_lease_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_remain_renew_time(UINT *pValue);
@@ -411,12 +374,9 @@ INT dhcpv4c_get_ecm_remain_renew_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_remain_rebind_time(UINT *pValue);
@@ -431,12 +391,9 @@ INT dhcpv4c_get_ecm_remain_rebind_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_config_attempts(INT *pValue);
@@ -451,12 +408,9 @@ INT dhcpv4c_get_ecm_config_attempts(INT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_ifname(CHAR *pName);
@@ -477,12 +431,9 @@ INT dhcpv4c_get_ecm_ifname(CHAR *pName);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_fsm_state(INT *pValue);
@@ -497,13 +448,10 @@ INT dhcpv4c_get_ecm_fsm_state(INT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_ip_addr(UINT *pValue);
@@ -518,13 +466,10 @@ INT dhcpv4c_get_ecm_ip_addr(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_mask(UINT *pValue);
@@ -539,12 +484,9 @@ INT dhcpv4c_get_ecm_mask(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_gw(UINT *pValue);
@@ -558,12 +500,9 @@ INT dhcpv4c_get_ecm_gw(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_dns_svrs(dhcpv4c_ip_list_t *pList);
@@ -577,12 +516,9 @@ INT dhcpv4c_get_ecm_dns_svrs(dhcpv4c_ip_list_t *pList);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_ecm_dhcp_svr(UINT *pValue);
@@ -597,12 +533,9 @@ INT dhcpv4c_get_ecm_dhcp_svr(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_emta_remain_lease_time(UINT *pValue);
@@ -616,12 +549,9 @@ INT dhcpv4c_get_emta_remain_lease_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_emta_remain_renew_time(UINT *pValue);
@@ -635,12 +565,9 @@ INT dhcpv4c_get_emta_remain_renew_time(UINT *pValue);
 * @retval STATUS_SUCCESS if successful.
 * @retval STATUS_FAILURE if any error is detected.
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 INT dhcpv4c_get_emta_remain_rebind_time(UINT *pValue);

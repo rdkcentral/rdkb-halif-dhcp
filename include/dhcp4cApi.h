@@ -97,7 +97,7 @@ typedef struct{
         int    number;                                     /**<  @brief Number of IPv4 addresses in the 
                                                                   list */
         unsigned int addrList[MAX_IPV4_ADDR_LIST_NUMBER];  /**< @brief List of IPv4 addresses. Each IPv4
-                                                                address is an unsigned integer of 4 bytes.
+                                                                address is an unsigned integer.
                                                                 The valid ranges for IPv4 addresses are:
                                                                 "1.0.0.0 to 127.0.0.0, 
                                                                 128.0.0.0 to 191.255.0.0, 
@@ -111,6 +111,14 @@ typedef struct{
  * @{
  */
 
+/*
+ * TODO:
+ *
+ * 1. Extend the return codes by listing out the possible reasons of failure, to improve the interface in the future.
+ *    This was reported during the review for header file migration to opensource github.
+ *
+ */
+
 
 /**
 * @brief Gets the E-Router Offered Lease Time
@@ -121,11 +129,8 @@ typedef struct{
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_lease_time(unsigned int *pValue);
@@ -140,12 +145,9 @@ int dhcp4c_get_ert_lease_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_remain_lease_time(unsigned int *pValue);
@@ -160,11 +162,8 @@ int dhcp4c_get_ert_remain_lease_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_remain_renew_time(unsigned int *pValue);
@@ -179,12 +178,9 @@ int dhcp4c_get_ert_remain_renew_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_remain_rebind_time(unsigned int *pValue);
@@ -199,11 +195,8 @@ int dhcp4c_get_ert_remain_rebind_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_config_attempts(int *pValue);
@@ -218,12 +211,9 @@ int dhcp4c_get_ert_config_attempts(int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_ifname(char *pName);
@@ -246,12 +236,9 @@ int dhcp4c_get_ert_ifname(char *pName);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_fsm_state(int *pValue);
@@ -266,12 +253,9 @@ int dhcp4c_get_ert_fsm_state(int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_ip_addr(unsigned int *pValue);
@@ -286,12 +270,9 @@ int dhcp4c_get_ert_ip_addr(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_mask(unsigned int *pValue);
@@ -306,12 +287,9 @@ int dhcp4c_get_ert_mask(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_gw(unsigned int *pValue);
@@ -325,12 +303,9 @@ int dhcp4c_get_ert_gw(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_dns_svrs(ipv4AddrList_t *pList);
@@ -345,12 +320,9 @@ int dhcp4c_get_ert_dns_svrs(ipv4AddrList_t *pList);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 *
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ert_dhcp_svr(unsigned int *pValue);
@@ -365,12 +337,9 @@ int dhcp4c_get_ert_dhcp_svr(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_lease_time(unsigned int *pValue);
@@ -385,11 +354,8 @@ int dhcp4c_get_ecm_lease_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_remain_lease_time(unsigned int *pValue);
@@ -404,12 +370,9 @@ int dhcp4c_get_ecm_remain_lease_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_remain_renew_time(unsigned int *pValue);
@@ -424,12 +387,9 @@ int dhcp4c_get_ecm_remain_renew_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_remain_rebind_time(unsigned int *pValue);
@@ -444,12 +404,9 @@ int dhcp4c_get_ecm_remain_rebind_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_config_attempts(int *pValue);
@@ -464,12 +421,9 @@ int dhcp4c_get_ecm_config_attempts(int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 
@@ -493,12 +447,9 @@ int dhcp4c_get_ecm_ifname(char *pName);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_fsm_state(int *pValue);
@@ -513,12 +464,9 @@ int dhcp4c_get_ecm_fsm_state(int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_ip_addr(unsigned int *pValue);
@@ -533,12 +481,9 @@ int dhcp4c_get_ecm_ip_addr(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_mask(unsigned int *pValue);
@@ -553,12 +498,9 @@ int dhcp4c_get_ecm_mask(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_gw(unsigned int *pValue);
@@ -572,12 +514,9 @@ int dhcp4c_get_ecm_gw(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_dns_svrs(ipv4AddrList_t *pList);
@@ -592,12 +531,9 @@ int dhcp4c_get_ecm_dns_svrs(ipv4AddrList_t *pList);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_ecm_dhcp_svr(unsigned int *pValue);
@@ -612,12 +548,9 @@ int dhcp4c_get_ecm_dhcp_svr(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 * 
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_emta_remain_lease_time(unsigned int *pValue);
@@ -632,12 +565,9 @@ int dhcp4c_get_emta_remain_lease_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_emta_remain_renew_time(unsigned int *pValue);
@@ -651,12 +581,9 @@ int dhcp4c_get_emta_remain_renew_time(unsigned int *pValue);
 * @retval STATUS_SUCCESS which is 0 if successful.
 * @retval STATUS_FAILURE which is -1 if any error is detected
 *
-* @remark The caller is responsible for providing a valid memory location for the function arguments.
 *
 * 
 *
-* @note This function must not suspend and must not invoke any blocking system
-* calls. It should probably just send a message to a driver event handler task.
 *
 */
 int dhcp4c_get_emta_remain_rebind_time(unsigned int *pValue);
