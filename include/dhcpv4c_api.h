@@ -17,7 +17,7 @@
  * limitations under the License.
 */
 
-/**!
+/**
  * @file dhcp4c_api.h
  * @brief Defines the public interface for the RDK-Broadband DHCPv4 Client HAL.
  */
@@ -79,10 +79,10 @@
 /**********************************************************************
                 STRUCTURE DEFINITIONS
 **********************************************************************/
-/**! Represents a list of IPv4 addresses. */
+/** Represents a list of IPv4 addresses. */
 typedef struct {
-    INT  numAddresses;  /**!< Number of IPv4 addresses in the list. */
-    UINT addresses[DHCPV4_MAX_IPV4_ADDRS];  /**!< Array storing IPv4 addresses (e.g., "192.168.0.1"). */ 
+    INT  numAddresses;  /*!< Number of IPv4 addresses in the list. */
+    UINT addresses[DHCPV4_MAX_IPV4_ADDRS];  /*!< Array storing IPv4 addresses (e.g., "192.168.0.1"). */ 
 } dhcpv4c_ip_list_t;
 /** @} */  //END OF GROUP DHCPV4C_HAL_TYPES
 
@@ -106,7 +106,7 @@ typedef struct {
  */
 
 
-/**!
+/**
  * @brief Retrieves the E-Router's offered DHCP lease time (in seconds).
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the lease time.
@@ -117,7 +117,7 @@ typedef struct {
  */
 INT dhcpv4c_get_ert_lease_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the E-Router's remaining DHCP lease time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining lease time (in seconds).
@@ -128,7 +128,7 @@ INT dhcpv4c_get_ert_lease_time(UINT *pValue);
  */
 INT dhcpv4c_get_ert_remain_lease_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the E-Router's remaining DHCP lease renewal time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining renewal time (in seconds).
@@ -139,7 +139,7 @@ INT dhcpv4c_get_ert_remain_lease_time(UINT *pValue);
  */
 INT dhcpv4c_get_ert_remain_renew_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the E-Router's remaining DHCP lease rebind time (in seconds).
  * 
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining rebind time.
@@ -150,7 +150,7 @@ INT dhcpv4c_get_ert_remain_renew_time(UINT *pValue);
  */
 INT dhcpv4c_get_ert_remain_rebind_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the number of configuration attempts made by the E-Router.
  *
  * @param[out] pValue - Pointer to an integer where the configuration attempt count will be stored.
@@ -161,7 +161,7 @@ INT dhcpv4c_get_ert_remain_rebind_time(UINT *pValue);
  */
 INT dhcpv4c_get_ert_config_attempts(INT *pValue);
 
-/**!
+/**
  * @brief Retrieves the E-Router interface name.
  *
  * This function populates the provided buffer with the name of the E-Router interface.
@@ -174,7 +174,7 @@ INT dhcpv4c_get_ert_config_attempts(INT *pValue);
  */
 INT dhcpv4c_get_ert_ifname(CHAR *pName);
 
-/**!
+/**
  * @brief Retrieves the E-Router's DHCP client state.
  *
  * This function gets the current state of the DHCP client associated with the E-Router.
@@ -190,7 +190,7 @@ INT dhcpv4c_get_ert_ifname(CHAR *pName);
  */
 INT dhcpv4c_get_ert_fsm_state(INT *pValue);
 
-/**!
+/**
  * @brief Retrieves the IP address of the E-Router interface.
  *
  * This function gets the IPv4 address currently assigned to the E-Router interface.
@@ -206,7 +206,7 @@ INT dhcpv4c_get_ert_fsm_state(INT *pValue);
  */
 INT dhcpv4c_get_ert_ip_addr(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the subnet mask of the E-Router interface.
  * 
  * @param[out] pValue - Pointer to an unsigned integer to store the subnet mask.
@@ -219,7 +219,7 @@ INT dhcpv4c_get_ert_ip_addr(UINT *pValue);
  */
 INT dhcpv4c_get_ert_mask(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the IP address of the E-Router's gateway.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the gateway IP address.
@@ -234,7 +234,7 @@ INT dhcpv4c_get_ert_mask(UINT *pValue);
  */
 INT dhcpv4c_get_ert_gw(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the list of DNS servers associated with the E-Router.
  *
  * @param[out] pList - Pointer to a `dhcpv4c_ip_list_t` structure to store the list of DNS server IP addresses.
@@ -245,7 +245,7 @@ INT dhcpv4c_get_ert_gw(UINT *pValue);
  */
 INT dhcpv4c_get_ert_dns_svrs(dhcpv4c_ip_list_t *pList);
 
-/**!
+/**
  * @brief Retrieves the E-Router's DHCP server IP address.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the DHCP server's IPv4 address.
@@ -260,7 +260,7 @@ INT dhcpv4c_get_ert_dns_svrs(dhcpv4c_ip_list_t *pList);
  */
 INT dhcpv4c_get_ert_dhcp_svr(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) offered DHCP lease time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the lease time (in seconds).
@@ -271,7 +271,7 @@ INT dhcpv4c_get_ert_dhcp_svr(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_lease_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) remaining DHCP lease time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining lease time (in seconds).
@@ -282,7 +282,7 @@ INT dhcpv4c_get_ecm_lease_time(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_remain_lease_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) remaining DHCP lease renewal time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining renewal time (in seconds).
@@ -293,7 +293,7 @@ INT dhcpv4c_get_ecm_remain_lease_time(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_remain_renew_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) remaining DHCP lease rebind time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining rebind time (in seconds).
@@ -304,7 +304,7 @@ INT dhcpv4c_get_ecm_remain_renew_time(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_remain_rebind_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) number of DHCP configuration attempts.
  *
  * @param[out] pValue - Pointer to an integer where the configuration attempt count will be stored.
@@ -315,7 +315,7 @@ INT dhcpv4c_get_ecm_remain_rebind_time(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_config_attempts(INT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM (Embedded Cable Modem) interface name.
  *
  * This function populates the provided buffer with the name of the ECM interface.
@@ -328,7 +328,7 @@ INT dhcpv4c_get_ecm_config_attempts(INT *pValue);
  */
 INT dhcpv4c_get_ecm_ifname(CHAR *pName);
 
-/**!
+/**
  * @brief Retrieves the ECM's DHCP client state.
  *
  * This function gets the current state of the DHCP client associated with the Embedded Cable Modem (ECM).
@@ -344,7 +344,7 @@ INT dhcpv4c_get_ecm_ifname(CHAR *pName);
  */
 INT dhcpv4c_get_ecm_fsm_state(INT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) IP address.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the ECM's IPv4 address.
@@ -359,7 +359,7 @@ INT dhcpv4c_get_ecm_fsm_state(INT *pValue);
  */
 INT dhcpv4c_get_ecm_ip_addr(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the subnet mask of the ECM (Embedded Cable Modem) interface.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the subnet mask.
@@ -372,7 +372,7 @@ INT dhcpv4c_get_ecm_ip_addr(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_mask(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the subnet mask of the ECM (Embedded Cable Modem) interface.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the subnet mask.
@@ -387,7 +387,7 @@ INT dhcpv4c_get_ecm_mask(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_gw(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) list of DNS servers.
  *
  * @param[out] pList - Pointer to a `dhcpv4c_ip_list_t` structure to store the list of DNS server IP addresses.
@@ -400,7 +400,7 @@ INT dhcpv4c_get_ecm_gw(UINT *pValue);
  */
 INT dhcpv4c_get_ecm_dns_svrs(dhcpv4c_ip_list_t *pList);
 
-/**!
+/**
  * @brief Retrieves the ECM's (Embedded Cable Modem) DHCP server IP address.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the DHCP server's IPv4 address.
@@ -415,7 +415,7 @@ INT dhcpv4c_get_ecm_dns_svrs(dhcpv4c_ip_list_t *pList);
  */
 INT dhcpv4c_get_ecm_dhcp_svr(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the eMTA's (Embedded Multimedia Terminal Adapter) remaining DHCP lease time (in seconds).
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining lease time.
@@ -426,7 +426,7 @@ INT dhcpv4c_get_ecm_dhcp_svr(UINT *pValue);
  */
 INT dhcpv4c_get_emta_remain_lease_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the eMTA's (Embedded Multimedia Terminal Adapter) remaining DHCP lease renewal time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining renewal time (in seconds).
@@ -437,7 +437,7 @@ INT dhcpv4c_get_emta_remain_lease_time(UINT *pValue);
  */
 INT dhcpv4c_get_emta_remain_renew_time(UINT *pValue);
 
-/**!
+/**
  * @brief Retrieves the eMTA's (Embedded Multimedia Terminal Adapter) remaining DHCP lease rebind time.
  *
  * @param[out] pValue - Pointer to an unsigned integer to store the remaining rebind time (in seconds).
