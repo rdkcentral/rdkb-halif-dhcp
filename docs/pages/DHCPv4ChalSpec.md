@@ -73,7 +73,7 @@ If `UDHCPEnable_v2` is false, the HAL will utilize proprietary dhcpv4c APIs.
 
 ## Threading Model
 
-The interface is not thread safe.
+This interface is not required to be thread safe.
 
 Any module which is invoking the API should ensure calls are made in a thread safe manner.
 
