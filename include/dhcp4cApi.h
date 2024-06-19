@@ -176,21 +176,17 @@ int dhcp4c_get_ert_remain_rebind_time(unsigned int *pValue);
  */
 int dhcp4c_get_ert_config_attempts(int *pValue);
 
-/**
-* @brief Gets the E-Router Interface Name.
-*
-* @param[out] pName It is a 64 byte character array that provides the interface name.
-*                   \n It is vendor specific.
-*
-* @return The status of the operation.
-* @retval STATUS_SUCCESS which is 0 if successful.
-* @retval STATUS_FAILURE which is -1 if any error is detected
-*
-*
-* 
-*
-*
-*/
+/**!
+ * @brief Retrieves the E-Router interface name.
+ *
+ * This function populates the provided buffer with the name of the E-Router interface.
+ *
+ * @param[out] pName - Buffer (at least 64 bytes) to store the E-Router interface name (vendor-specific).
+ *
+ * @returns Status of the operation:
+ * @retval STATUS_SUCCESS - On success.
+ * @retval STATUS_FAILURE - On failure (e.g., null pointer, retrieval error).
+ */
 int dhcp4c_get_ert_ifname(char *pName);
 
 /**
