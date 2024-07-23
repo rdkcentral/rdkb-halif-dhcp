@@ -81,8 +81,8 @@
 **********************************************************************/
 /** Represents a list of IPv4 addresses. */
 typedef struct {
-    INT  numAddresses;  /*!< Number of IPv4 addresses in the list. */
-    UINT addresses[DHCPV4_MAX_IPV4_ADDRS];  /*!< Array storing IPv4 addresses (e.g., "192.168.0.1"). */ 
+    INT  number;  /*!< Number of IPv4 addresses in the list. */
+    UINT addrs[DHCPV4_MAX_IPV4_ADDRS];  /*!< Array storing IPv4 addresses (e.g., "192.168.0.1"). */ 
 } dhcpv4c_ip_list_t;
 /** @} */  //END OF GROUP DHCPV4C_HAL_TYPES
 
