@@ -415,6 +415,7 @@ INT dhcpv4c_get_ecm_dns_svrs(dhcpv4c_ip_list_t *pList);
  */
 INT dhcpv4c_get_ecm_dhcp_svr(UINT *pValue);
 
+#if !defined (NO_MTA_FEATURE_SUPPORT)
 /**
  * @brief Retrieves the eMTA's (Embedded Multimedia Terminal Adapter) remaining DHCP lease time (in seconds).
  *
@@ -447,6 +448,6 @@ INT dhcpv4c_get_emta_remain_renew_time(UINT *pValue);
  * @retval STATUS_FAILURE - On failure (e.g., invalid pointer, retrieval error).
  */
 INT dhcpv4c_get_emta_remain_rebind_time(UINT *pValue);
-
+#endif
 /** @} */  //END OF GROUP DHCPV4C_HAL_APIS
 #endif
