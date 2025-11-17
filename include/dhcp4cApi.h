@@ -80,8 +80,12 @@ enum DHCPC_CMD {
 /*!< Represents the different modules within the DHCPv4 client. */
 enum DHCPC_MODULE{
     DHCPC_ECM,      /*!< Embedded Cable Modem (ECM) module. */
+#if !defined (NO_MTA_FEATURE_SUPPORT)
     DHCPC_EROUTER,  /*!< Router module. */
     DHCPC_EMTA      /*!< Embedded Multimedia Terminal Adapter (eMTA) module. */
+#else
+    DHCPC_EROUTER
+#endif
 };
 
 #define MAX_IPV4_ADDR_LIST_NUMBER        4  //!< Maximum number of IPv4 addresses in the list  
@@ -410,6 +414,7 @@ int dhcp4c_get_ecm_dns_svrs(ipv4AddrList_t *pList);
  */
 int dhcp4c_get_ecm_dhcp_svr(unsigned int *pValue);
 
+#if !defined (NO_MTA_FEATURE_SUPPORT)
 /**
  * @brief Retrieves the eMTA's remaining DHCP lease time.
  *
@@ -442,7 +447,7 @@ int dhcp4c_get_emta_remain_renew_time(unsigned int *pValue);
  * @retval STATUS_FAILURE - On failure (e.g., invalid pointer, retrieval error).
  */
 int dhcp4c_get_emta_remain_rebind_time(unsigned int *pValue);
-
+#endif
 /** @} */  //END OF GROUP DHCPV4C_HAL_APIS
 
 #endif
